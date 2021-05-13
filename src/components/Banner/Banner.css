@@ -1,0 +1,12 @@
+.logo
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.subTitle
+{
+    margin-top: 20px;
+    color: red;
+}

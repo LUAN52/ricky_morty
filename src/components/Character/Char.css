@@ -1,0 +1,48 @@
+
+
+.conte
+{   display:flex;
+    height: 800px;
+    
+
+  
+}
+
+.intContainer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+    justify-content: center;
+    
+}
+
+.infoCard
+{
+    display: flex;
+    flex-direction: row;
+    
+    
+    
+}
+
+.description
+{
+    margin-right: 15px;
+}
+
+.char
+{
+    
+    width: 25rem ;
+    margin-top: 20px;
+    margin-bottom: 20px
+      
+}
+
+.epi
+{
+    word-break: break-all;
+}
+

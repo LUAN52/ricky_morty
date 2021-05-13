@@ -1,0 +1,41 @@
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+html, body, #root, .App {
+ height: 100%;
+ 
+}
+
+
+.outContainner 
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+       
+}
+
+
+
+.title
+{
+   
+    padding: 5px;
+    margin-top: 50px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white
+    
+   
+}
+
+.hPage
+{
+    height: 100%;
+}
