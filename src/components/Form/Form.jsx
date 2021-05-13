@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import api from '../../api'
 import Search from '../Search/Search'
 import './Form.css'
-
-
 
 
 const Form = () => {
@@ -13,20 +11,16 @@ const Form = () => {
     const [error, setError] = useState(false)
     const [button, setButton] = useState(false)
 
-    useEffect(() => {
-        const getCharacters = async () => {
-            const resp = await api.get(`/character/?${selected}=${input}`);
 
-            setData(resp.data.results);
+   const getChar=()=>{
+    api.get(`/character/?${selected}=${input}`)
+        .then(item=>
 
-            console.log(resp.status)
-
-        }
-
-        getCharacters()
-
-    }, [selected, button, input])
-
+           setData(item.data.results))
+        .catch(()=>{
+            setError(true);
+        })
+   }
 
     return (
 
@@ -36,7 +30,7 @@ const Form = () => {
                 <h1 className="title">selecione sua busca</h1>
                 <div className="containner cont">
                     <div className="sForm">
-                        <form style={{ textAlign: "center" }}>
+                        <form type="get" style={{ textAlign: "center" }}>
                             <select onChange={(e) => {
                                 setSelected(e.target.value)
                             }}
@@ -48,21 +42,16 @@ const Form = () => {
 
                             <input onChange={(e) => {
 
-                                if (input.length > 0) {
-                                    setButton(false)
-                                }
-
                                 setInput(e.target.value)
                             }} placeholder="digite aqui sua pesquisa" className="form-control" type="text" />
 
                             <button style={{ marginTop: "20px" }} onClick={() => {
-                                if (input === "" || data.length == 0) { setError(true) }
-                                else { setError(false) }
+                                if (input === "" ) { setError(true) }
+                                else {setError(false)
 
-                                if (input.length > 0) {
-                                    setButton(false)
-                                }
-                                setButton(true)
+                                getChar()}
+                                setButton(true);
+
                             }
                             } type="button" className="btn btn-primary">Pesquisar</button>
 
@@ -73,7 +62,7 @@ const Form = () => {
                     campo em branco ou elemento não encontrado
                 </div> : null}
 
-                {button && !error ? <Search data={data} setButton={setButton}></Search> : null}
+                {button && !error &&data.length>0 ? <Search data={data} setButton={setButton}></Search> : null}
 
             </div>
         </>
