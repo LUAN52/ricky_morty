@@ -29,7 +29,7 @@ const createElemet = (char) => {
             <img src={char[i + 1].image} className="card-img-top " alt="...." />
             <div className="card-body  text">
               <h5 className="card-title">{`Nome: ${char[i + 1].name}`}</h5>
-              <p>{`status: ${char[i + 1].status}`}</p>
+              <h5>{`status: ${char[i+1].status}`}</h5>
             </div>
           </div>
         </Link>
@@ -93,11 +93,3 @@ const Characters = ({ char, setCurrentPage, currentPage }) => {
 
 
 export default Characters;
-
-
-
-
-
-
-
-
