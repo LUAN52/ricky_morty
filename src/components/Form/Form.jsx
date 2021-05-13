@@ -3,7 +3,6 @@ import api from '../../api'
 import Search from '../Search/Search'
 import './Form.css'
 
-
 const Form = () => {
     const [selected, setSelected] = useState("name");
     const [input, setInput] = useState("");
@@ -18,6 +17,7 @@ const Form = () => {
 
            setData(item.data.results))
         .catch(()=>{
+            setData([])
             setError(true);
         })
    }
