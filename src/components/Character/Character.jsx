@@ -4,28 +4,29 @@ import api from '../../api'
 import "./Char.css"
 
 const Character = () => {
+
     const [character, setCharacter] = useState({})
     const [episode, setEpisode] = useState("")
-    const { id } = useParams()
-  
+    const {id} = useParams()
+    const [name,setName] = useState("")
 
     useEffect(() => {
 
         const getCharacter = async () => {
             let { data } = await api.get(`/character/${id}`);
+            setName(data.name)
             let epidodios = []
             if (data.episode.length > 1) {
 
                 for (let index = 0; index < data.episode.length; index++) {
-                    
+
                     let tamEpisode = data.episode[index].length;
                     let episode = data.episode[index].substr(tamEpisode-2);
                     episode = episode.replace("/","")+";"
                     epidodios.push(episode);
-                    
+
                 }
                 setEpisode(epidodios);
-               
 
             }
             else {
@@ -35,22 +36,20 @@ const Character = () => {
                 let episode = data.episode[0].substr(tamEpisode - 2);
                 episode= episode.replace("/"," ");
 
-                
+
                 setEpisode(`apenas no ${episode}`);
 
             }
             setCharacter(data);
-        
+
         }
 
         getCharacter();
-    }, [])
-
-
+    },[id])
 
     return (<>
         <div  className="outContainner hPage">
-            <h1 className="title">Personagem</h1>
+            <h1 className="title">{name}</h1>
             <div className="container  intContainer cont" >
                 <div className=" char" >
                     <img src={character.image} className="card-img-top" alt="..." />

@@ -40,10 +40,7 @@ const createElemet = (char) => {
   return pal
 
 
-
-
 }
-
 
 
 const Characters = ({ char, setCurrentPage, currentPage }) => {
@@ -61,26 +58,26 @@ const Characters = ({ char, setCurrentPage, currentPage }) => {
         <nav aria-label="Page navigation example">
           <ul className="pagination">
             <li className="page-item">
-              <a className="page-link" onClick={() => {
-                if (currentPage != 1) {
+              <p  className="page-link" onClick={() => {
+                if (currentPage !== 1) {
                   setCurrentPage(() => { setCurrentPage(currentPage - 1) })
                 }
                 else { setCurrentPage(2) }
               }} aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
-              </a>
+              </p>
             </li>
-            <li onClick={() => { setCurrentPage(1) }} className="page-item"><a className="page-link" href="#">1</a></li>
-            <li onClick={() => { setCurrentPage(2) }} className="page-item"><a className="page-link" href="#">2</a></li>
+            <li onClick={() => { setCurrentPage(1) }} className="page-item">< ><p className="page-link" >1</p></></li>
+            <li onClick={() => { setCurrentPage(2) }} className="page-item"><p className="page-link" >2</p></li>
             <li className="page-item">
-              <a className="page-link" onClick={() => {
-                if (currentPage != 2) {
+              <p  className="page-link" onClick={() => {
+                if (currentPage !== 2) {
                   setCurrentPage(() => (setCurrentPage(currentPage + 1)))
                 }
                 else { setCurrentPage(1) }
               }} aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
-              </a>
+              </p>
             </li>
           </ul>
         </nav>
